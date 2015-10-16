@@ -33,7 +33,13 @@ int main()
 
 		guessesMade[amountOfGuesses] = guessedLetter;
 		amountOfGuesses = amountOfGuesses + 1;
+
+		for (int i = 0; i < amountOfGuesses; i = i + 1) {
+			std::cout << "This is what you guessed: " << guessesMade[i] << std::endl;
+		}
 	}
+
+	std::cout << "GAME OVER. YOU LOST.";
 
     return 0;
 }
