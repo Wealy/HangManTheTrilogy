@@ -5,23 +5,24 @@
 #include <iostream>
 #include <string>
 
-
 int main()
 {
 	int amountOfGuesses;
 	amountOfGuesses = 0;
-	int guessesAllowed = 5;
+	int guessesAllowed = 6;
 	std::string word;
 	word = "couch";
 	int lengthOfWord;
 	lengthOfWord = word.length();
 
-	int* numbers;
-	numbers = new int[100];
-	numbers[1] = 54;
-
 	std::string* guessesMade;
-	guessesMade = new string[]
+	guessesMade = new std::string[26];
+
+	/* This is a comment */
+	for (int i = 1; i <= 15; i = i + 1)
+	{
+		std::cout << "Hello, the current value of 'i' is = " << i << std::endl;
+	}
 
 	while (amountOfGuesses < guessesAllowed) {
 		std::cout << "Guess a letter in the word by typing in the console." << std::endl;
@@ -30,6 +31,8 @@ int main()
 		std::string guessedLetter;
 		std::cin >> guessedLetter;
 
+		guessesMade[amountOfGuesses] = guessedLetter;
+		amountOfGuesses = amountOfGuesses + 1;
 	}
 
     return 0;
