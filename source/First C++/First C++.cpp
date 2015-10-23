@@ -35,7 +35,6 @@ int main()
 			amountOfGuesses = amountOfGuesses + 1;
 
 
-		guessesMade[amountOfGuesses] = guessedLetter;
 
 			for (int i = 0; i < amountOfGuesses; i = i + 1) {
 
