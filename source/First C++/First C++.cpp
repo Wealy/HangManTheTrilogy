@@ -18,6 +18,7 @@ int main()
 	std::string* guessesMade;
 	guessesMade = new std::string[26];
 
+
 	while (amountOfGuesses < guessesAllowed) {
 		std::cout << "Guess a letter in the word by typing in the console." << std::endl;
 		std::cout << "You have guessed " << amountOfGuesses << " times." << std::endl;
@@ -25,25 +26,33 @@ int main()
 		std::string guessedLetter;
 		std::cin >> guessedLetter;
 
-
-		/*BUG: You can guess the same letter twice*/
-		/*BUG: You can guess a full word*/
-		guessesMade[amountOfGuesses] = guessedLetter;
-		amountOfGuesses = amountOfGuesses + 1;
-
-
-		
-		for (int i = 0; i < amountOfGuesses; i = i + 1) {
-			
-			if (i == 0) {
-				std::cout << "This is what you guessed: " << guessesMade[i];
-			}
-			else {
-				std::cout << ", " << guessesMade[i];
-			}
+		if ((guessedLetter.length() > 1) || (guessedLetter.length() < 1)) {
+			std::cout << "You can only guess one letter at a time." << std::endl;
 		}
-		std::cout<< std::endl;
+		else {
+			/*BUG: You can guess the same letter twice*/
+			guessesMade[amountOfGuesses] = guessedLetter;
+			amountOfGuesses = amountOfGuesses + 1;
+
+
+		guessesMade[amountOfGuesses] = guessedLetter;
+
+			for (int i = 0; i < amountOfGuesses; i = i + 1) {
+
+				if (i == 0) {
+					std::cout << "This is what you guessed: " << guessesMade[i];
+				}
+				else {
+					std::cout << ", " << guessesMade[i];
+				}
+			}
+			std::cout << std::endl;
+		}
+
+
+
 	}
+
 
 	std::cout << "GAME OVER. YOU LOST.";
 
