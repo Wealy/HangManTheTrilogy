@@ -5,6 +5,24 @@
 #include <iostream>
 #include <string>
 
+int PrintGuessesMade(int amountOfGuesses, int guessesAllowed) {
+	if (amountOfGuesses == 1) {
+		std::cout << "You have guessed " << amountOfGuesses << " time." << std::endl;
+	}
+	else {
+		std::cout << "You have guessed " << amountOfGuesses << " times." << std::endl;
+	}
+
+	if ((guessesAllowed - amountOfGuesses) == 1) {
+		std::cout << "You have " << (guessesAllowed - amountOfGuesses) << " guess." << std::endl;
+	}
+	else {
+		std::cout << "You have " << (guessesAllowed - amountOfGuesses) << " guesses." << std::endl;
+	}
+	return 0;
+
+}
+
 int main()
 {
 	int amountOfGuesses;
@@ -21,20 +39,9 @@ int main()
 
 	while (amountOfGuesses < guessesAllowed) {
 		std::cout << "Guess a letter in the word by typing in the console." << std::endl;
-		
-		if (amountOfGuesses == 1) {
-			std::cout << "You have guessed " << amountOfGuesses << " time." << std::endl;
-		}
-		else {
-			std::cout << "You have guessed " << amountOfGuesses << " times." << std::endl;
-		}
+	
+		PrintGuessesMade(amountOfGuesses, guessesAllowed);
 
-		if ((guessesAllowed - amountOfGuesses) == 1) {
-			std::cout << "You have " << (guessesAllowed - amountOfGuesses) << " guess." << std::endl;
-		}
-		else {
-			std::cout << "You have " << (guessesAllowed - amountOfGuesses) << " guesses." << std::endl;
-		}
 		std::string guessedLetter;
 		std::cin >> guessedLetter;
 
