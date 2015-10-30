@@ -63,6 +63,20 @@ int main()
 		std::string guessedLetter;
 		std::cin >> guessedLetter;
 
+
+		bool guessedTheSameLetterTwice = false;
+		for(int i = 0; i < amountOfGuesses; i = i + 1) {
+			if (guessesMade[i] == guessedLetter) {
+				guessedTheSameLetterTwice = true;
+			}
+		}
+
+		if (guessedTheSameLetterTwice == true) {
+			std::cout << "You already guessed that." << std::endl;
+			continue;
+		}
+
+
 		if ((guessedLetter.length() > 1) || (guessedLetter.length() < 1)) {
 			std::cout << "You can only guess one letter at a time." << std::endl;
 		}
@@ -70,16 +84,16 @@ int main()
 			/*BUG: You can guess the same letter twice*/
 			guessesMade[amountOfGuesses] = guessedLetter;
 			amountOfGuesses = amountOfGuesses + 1;
-		
-	
+
+
 			PrintPreviousGuesses(amountOfGuesses, guessesMade);
-	}
+		}
 	}
 
 
 	std::cout << "GAME OVER. YOU LOST.";
 
-    return 0;
+	return 0;
 }
 
 
