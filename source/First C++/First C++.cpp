@@ -5,7 +5,9 @@
 #include <iostream>
 #include <string>
 
-int PrintGuessesMade(int amountOfGuesses, int guessesAllowed) {
+
+
+int PrintAmountOfGuessesMade(int amountOfGuesses, int guessesAllowed) {
 	if (amountOfGuesses == 1) {
 		std::cout << "You have guessed " << amountOfGuesses << " time." << std::endl;
 	}
@@ -23,6 +25,22 @@ int PrintGuessesMade(int amountOfGuesses, int guessesAllowed) {
 
 }
 
+int PrintPreviousGuesses(int amountOfGuesses, std::string* guessesMade) {
+	for (int i = 0; i < amountOfGuesses; i = i + 1) {
+
+		if (i == 0) {
+			std::cout << "This is what you guessed: " << guessesMade[i];
+
+		}
+		else {
+			std::cout << ", " << guessesMade[i];
+		}
+	}
+	std::cout << std::endl;
+	return 0;
+}
+
+
 int main()
 {
 	int amountOfGuesses;
@@ -39,8 +57,8 @@ int main()
 
 	while (amountOfGuesses < guessesAllowed) {
 		std::cout << "Guess a letter in the word by typing in the console." << std::endl;
-	
-		PrintGuessesMade(amountOfGuesses, guessesAllowed);
+
+		PrintAmountOfGuessesMade(amountOfGuesses, guessesAllowed);
 
 		std::string guessedLetter;
 		std::cin >> guessedLetter;
@@ -52,24 +70,10 @@ int main()
 			/*BUG: You can guess the same letter twice*/
 			guessesMade[amountOfGuesses] = guessedLetter;
 			amountOfGuesses = amountOfGuesses + 1;
-			
-			
-
-			for (int i = 0; i < amountOfGuesses; i = i + 1) {
-
-				if (i == 0) {
-					std::cout << "This is what you guessed: " << guessesMade[i];
-					
-				}
-				else {
-					std::cout << ", " << guessesMade[i];
-				}
-			}
-			std::cout << std::endl;
-		}
-
-
-
+		
+	
+			PrintPreviousGuesses(amountOfGuesses, guessesMade);
+	}
 	}
 
 
@@ -77,4 +81,5 @@ int main()
 
     return 0;
 }
+
 
