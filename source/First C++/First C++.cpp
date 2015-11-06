@@ -5,7 +5,16 @@
 #include <iostream>
 #include <string>
 
+bool checkIfGuessedTwice(int amountOfGuesses, std::string guessedLetter, std::string* guessesMade) {
+	bool guessedTheSameLetterTwice = false;
+	for (int i = 0; i < amountOfGuesses; i = i + 1) {
+		if (guessesMade[i] == guessedLetter) {
+			guessedTheSameLetterTwice = true;
+		}
+	}
 
+	return guessedTheSameLetterTwice;
+}
 
 int PrintAmountOfGuessesMade(int amountOfGuesses, int guessesAllowed) {
 	if (amountOfGuesses == 1) {
@@ -22,8 +31,17 @@ int PrintAmountOfGuessesMade(int amountOfGuesses, int guessesAllowed) {
 		std::cout << "You have " << (guessesAllowed - amountOfGuesses) << " guesses." << std::endl;
 	}
 	return 0;
-
+	
 }
+
+int PrintCorrectlyGuessedLetters(std::string word, std::string* guessedLetters, int amountOfGuesses){
+	for (int i = 1; i <= word.length(); i = i + 1) {
+		std::cout << "_ ";
+	}
+	std::cout << std::endl;
+	return 0;
+}
+
 
 int PrintPreviousGuesses(int amountOfGuesses, std::string* guessesMade) {
 	for (int i = 0; i < amountOfGuesses; i = i + 1) {
@@ -39,8 +57,7 @@ int PrintPreviousGuesses(int amountOfGuesses, std::string* guessesMade) {
 	std::cout << std::endl;
 	return 0;
 }
-
-
+ 
 int main()
 {
 	int amountOfGuesses;
@@ -63,14 +80,12 @@ int main()
 		std::string guessedLetter;
 		std::cin >> guessedLetter;
 
+		PrintCorrectlyGuessedLetters(word,guessesMade, amountOfGuesses);
 
-		bool guessedTheSameLetterTwice = false;
-		for(int i = 0; i < amountOfGuesses; i = i + 1) {
-			if (guessesMade[i] == guessedLetter) {
-				guessedTheSameLetterTwice = true;
-			}
-		}
+		bool guessedTheSameLetterTwice;
+		guessedTheSameLetterTwice = checkIfGuessedTwice(amountOfGuesses, guessedLetter, guessesMade);
 
+		
 		if (guessedTheSameLetterTwice == true) {
 			std::cout << "You already guessed that." << std::endl;
 			continue;
@@ -81,7 +96,6 @@ int main()
 			std::cout << "You can only guess one letter at a time." << std::endl;
 		}
 		else {
-			/*BUG: You can guess the same letter twice*/
 			guessesMade[amountOfGuesses] = guessedLetter;
 			amountOfGuesses = amountOfGuesses + 1;
 
