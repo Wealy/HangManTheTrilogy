@@ -15,6 +15,44 @@ bool checkIfGuessedTwice(int amountOfGuesses, std::string guessedLetter, std::st
 
 	return guessedTheSameLetterTwice;
 }
+ // This is my attmept to fix that you can guess a number
+/*
+bool checkIfGuessedALetter(std::string guessedLetter) {
+	std::string a = "a";
+	std::string b = "b";
+	std::string c = "c";
+	std::string d = "d";
+	std::string e = "e";
+	std::string f = "f";
+	std::string g = "g";
+	std::string h = "h";
+	std::string i = "i";
+	std::string j = "j";
+	std::string k = "k";
+	std::string l = "l";
+	std::string m = "m";
+	std::string n = "n";
+	std::string o = "o";
+	std::string p = "p";
+	std::string q = "q";
+	std::string r = "r";
+	std::string s = "s";
+	std::string t = "t";
+	std::string u = "u";
+	std::string v = "v";
+	std::string w = "w";
+	std::string x = "x";
+	std::string y = "y";
+	std::string z = "z";
+	std::string lettersAllowedToGuess;
+	lettersAllowedToGuess = a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+	if (guessedLetter != lettersAllowedToGuess) std::cout << "You can only guess Letters" << std::endl;
+	if (guessedLetter != lettersAllowedToGuess) bool checkIfGuessedALetter = false; else {
+		bool checkIfGuessedALetter = true;
+	}
+	return checkIfGuessedALetter;
+};
+*/
 
 int PrintAmountOfGuessesMade(int amountOfGuesses, int guessesAllowed) {
 	if (amountOfGuesses == 1) {
@@ -80,8 +118,10 @@ int main()
 		std::string guessedLetter;
 		std::cin >> guessedLetter;
 
-		PrintCorrectlyGuessedLetters(word,guessesMade, amountOfGuesses);
+		/* my attempt at calling it
 
+		bool checkIFGuessedALetter;
+		*/
 		bool guessedTheSameLetterTwice;
 		guessedTheSameLetterTwice = checkIfGuessedTwice(amountOfGuesses, guessedLetter, guessesMade);
 
